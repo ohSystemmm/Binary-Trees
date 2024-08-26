@@ -1,10 +1,10 @@
 public class Node {
 
-    int Data;
-    Node Left;
-    Node Right;
+    int data;
+    Node left;
+    Node right;
 
-    public Node(int Data) {
-        this.Data = Data;
+    public Node(int data) {
+        this.data = data;
     }
 }
