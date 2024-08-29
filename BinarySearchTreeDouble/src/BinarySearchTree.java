@@ -37,4 +37,25 @@ public class BinarySearchTree {
             DisplayHelper(root.right);
         }
     }
+
+    public boolean Search(int data) {
+
+        return SearchHelper(root, data);
+    }
+
+    private boolean SearchHelper(Node root, int data) {
+
+        if (root == null) {
+            return false;
+        }
+        else if (root.data == data) {
+            return true;
+        }
+        else if (root.data > data) {
+            return SearchHelper(root.left, data);
+        }
+        else {
+            return SearchHelper(root.right, data);
+        }
+    }
 }
