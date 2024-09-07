@@ -9,9 +9,9 @@ public class Main {
 
         for (int i = 0; i < data.length; i++) {
             data[i] = random.nextInt(1000);
-            tree.Insert(new Node(data[i]));
+            tree.insert(new Node(data[i]));
         }
 
-       tree.Display();
+       tree.display();
     }
 }

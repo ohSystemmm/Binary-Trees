@@ -2,12 +2,12 @@ public class BinarySearchTree {
 
     Node root;
 
-    public void Insert(Node node) {
+    public void insert(Node node) {
 
-        root = InsertHelper(root, node);
+        root = insertHelper(root, node);
     }
 
-    private Node InsertHelper(Node root, Node node) {
+    private Node insertHelper(Node root, Node node) {
 
         int data = node.data;
 
@@ -16,35 +16,35 @@ public class BinarySearchTree {
             return root;
         }
         else if (data < root.data) {
-            root.left = InsertHelper(root.left, node);
+            root.left = insertHelper(root.left, node);
         }
         else {
-            root.right = InsertHelper(root.right, node);
+            root.right = insertHelper(root.right, node);
         }
 
         return root;
     }
 
-    public void Display() {
+    public void display() {
 
-        DisplayHelper(root);
+        displayHelper(root);
     }
 
-    private void DisplayHelper(Node root) {
+    private void displayHelper(Node root) {
 
         if (root != null) {
-            DisplayHelper(root.left);
+            displayHelper(root.left);
             System.out.println(root.data);
-            DisplayHelper(root.right);
+            displayHelper(root.right);
         }
     }
 
-    public boolean Search(int data) {
+    public boolean search(int data) {
 
-        return SearchHelper(root, data);
+        return searchHelper(root, data);
     }
 
-    private boolean SearchHelper(Node root, int data) {
+    private boolean searchHelper(Node root, int data) {
 
         if (root == null) {
             return false;
@@ -53,51 +53,51 @@ public class BinarySearchTree {
             return true;
         }
         else if (root.data > data) {
-            return SearchHelper(root.left, data);
+            return searchHelper(root.left, data);
         }
         else {
-            return SearchHelper(root.right, data);
+            return searchHelper(root.right, data);
         }
     }
 
-    public void Remove(int data) {
+    public void remove(int data) {
 
-        if (Search(data)) {
-            RemoveHelper(root, data);
+        if (search(data)) {
+            removeHelper(root, data);
         }
         else {
             System.out.println(data + " Not Found");
         }
     }
 
-    public Node RemoveHelper(Node root, int data) {
+    public Node removeHelper(Node root, int data) {
 
         if (root == null) {
             return root;
         }
         else if (data < root.data) {
-            root.left = RemoveHelper(root.left, data);
+            root.left = removeHelper(root.left, data);
         }
         else if (data > root.data) {
-            root.right = RemoveHelper(root.right, data);
+            root.right = removeHelper(root.right, data);
         }
         else {
             if (root.left == null && root.right == null) {
                 root = null;
             }
             else if (root.right != null) {
-                root.data = Successor(root);
-                root.right = RemoveHelper(root.right, root.data);
+                root.data = successor(root);
+                root.right = removeHelper(root.right, root.data);
             }
             else {
-                root.data = Predecessor(root);
-                root.left = RemoveHelper(root.left, root.data);
+                root.data = predecessor(root);
+                root.left = removeHelper(root.left, root.data);
             }
         }
         return root;
     }
 
-    private int Successor(Node root) {
+    private int successor(Node root) {
 
         root = root.right;
         while (root.left != null) {
@@ -106,7 +106,7 @@ public class BinarySearchTree {
         return root.data;
     }
 
-    private int Predecessor(Node root) {
+    private int predecessor(Node root) {
 
         root = root.left;
         while (root.right != null) {
