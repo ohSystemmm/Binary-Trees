@@ -39,6 +39,8 @@ public class BinarySearchTree {
         }
     }
 
+// Basic tree -----------------------------------------------------------------------------------
+
     public boolean search(int data) {
 
         return searchHelper(root, data);
